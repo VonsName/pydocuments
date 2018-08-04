@@ -1,6 +1,6 @@
 #__author: Administrator
 #__date: 2018/8/4/004
-
+import  sys
 #打开一个文件 第二个参数为打开模式 r 表示读取
 file=open('笔记1','r',encoding='utf-8')
 #读取
@@ -26,3 +26,7 @@ file.close()
 
 with open('笔记','r',encoding='utf-8') as f:
     f.readlines()
+
+a=[1,2,3]
+b=a.copy()
+print(b)
