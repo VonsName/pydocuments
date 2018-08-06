@@ -65,10 +65,10 @@ print(reduce(lambda a, b: a * b, [1, 2, 3, 4, 5]))
 
 # 装饰器 函数作为参数
 def show_time(f):
-    def inner():  # 这里如果不使用闭包函数返回 则下面调用的时候只能使用foo调用 否则TypeError: 'NoneType' object is not callable
+    def inner(*a):  # 这里如果不使用闭包函数返回 则下面调用的时候只能使用foo调用 否则TypeError: 'NoneType' object is not callable
         # 如果使用了闭包函数返回，则下面的调用foo() 否则调用不生效
         start = time.time()
-        f()
+        f(*a)
         end = time.time()
         print(end - start)
 
@@ -77,12 +77,15 @@ def show_time(f):
 
 # 调用的时候只能使用函数名 foo
 @show_time  # foo=show_time(foo)
-def foo():
-    print("111")
+def foo(*a):
+    sums = 0
+    for i in a:
+        sums += i
+    print(sums)
     time.sleep(2)
 
 
 # foo = show_time(foo)
 
 # foo()
-foo()
+foo(1, 2, 3, 4, 5)
