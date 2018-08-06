@@ -51,7 +51,7 @@ print("差集",a-b)
 print(a.symmetric_difference(b))
 print('对称差集',a ^ b)
 #超集
-print('超集',a.issubset(b))
+print('超集', a.issubset(b))
 #子集
-print('子集',a.issubset(b))
+print('子集', a.issubset(b))
 #14-3
